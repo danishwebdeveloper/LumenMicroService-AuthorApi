@@ -75,6 +75,9 @@ class AuthorController extends Controller
 
     public function destroy($authorId)
     {
+        $author = Author::findOrFail($authorId);
+        $author->delete();
 
+        return $this->successResponse($author);
     }
 }
